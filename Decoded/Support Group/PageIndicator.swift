@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct PageIndicator: View {
+    let numberofpges: Int
+    let currentPage: Int
+    let activePageColor: Color = .red
+    let inactivePageColor: Color = .white
+    let dotSize: CGFloat = 8
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            ForEach(0..<numberofpges, id: \.self) { page in
+                Circle()
+                    .fill(page == currentPage ? activePageColor : inactivePageColor)
+                    .frame(width: dotSize, height: dotSize)
+                    .animation(.easeInOut(duration: 0.3), value: currentPage)
+                    
+            }
+        }
+        .padding()
     }
 }
 
 #Preview {
-    PageIndicator()
+    PageIndicator(numberofpges: 5, currentPage: 0)
 }
