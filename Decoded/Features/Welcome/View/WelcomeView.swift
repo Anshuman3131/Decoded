@@ -23,8 +23,6 @@ struct WelcomeView: View {
             
 // MARK: - Text Content
             VStack(alignment: .leading, spacing: 0){
-
-// MARK: - Logo
                 HStack{
                     Image(systemName: "newspaper.fill")
                         .font(.system(size: 22, weight: .medium))
