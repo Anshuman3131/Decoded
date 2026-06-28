@@ -1,0 +1,38 @@
+# ---------------------------------------------------------------------
+# macOS
+# ---------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ---------------------------------------------------------------------
+# Xcode — personal / generated state (never commit)
+# ---------------------------------------------------------------------
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+DerivedData/
+build/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# ---------------------------------------------------------------------
+# Swift Package Manager
+# ---------------------------------------------------------------------
+.build/
+.swiftpm/
+# NOTE: Package.resolved IS committed on purpose — it pins exact dependency
+# versions so everyone builds the same thing.
+
+# ---------------------------------------------------------------------
+# Secrets — API keys & credentials (NEVER commit these)
+# Add the real filenames here once you decide your secrets mechanism.
+# ---------------------------------------------------------------------
+Secrets.xcconfig
+Secrets.swift
+*.env
+.env
