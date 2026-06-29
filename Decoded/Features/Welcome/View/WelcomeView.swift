@@ -26,7 +26,7 @@ struct WelcomeView: View {
                 HStack{
                     Image(systemName: "newspaper.fill")
                         .font(.system(size: 22, weight: .medium))
-                        .foregroundStyle(Color.brandAccent)
+                        .foregroundStyle(AppConstants.brandAccent)
                     Text("Decoded")
                         .font(.poppins(.bold, size: 25))
                         .foregroundStyle(.white)
@@ -43,14 +43,14 @@ struct WelcomeView: View {
                         Text("Simply.")
                     }
                     .font(.poppins(.bold, size: 44))
-                    .foregroundStyle(Color.textColor)
+                    .foregroundStyle(AppConstants.textColorWhite)
                     
                     (Text("The day's most important tech stories - distilled to the essentials. Ask ")
-                        .foregroundStyle(Color.white) +
+                        .foregroundStyle(AppConstants.textColorWhite) +
                      Text("Decoded")
-                        .foregroundStyle(Color.brandAccent) +
+                        .foregroundStyle(AppConstants.brandAccent) +
                      Text(" explains anything you don't get, in plain words..")
-                        .foregroundStyle(Color.textColor))
+                        .foregroundStyle(AppConstants.textColorWhite))
                     .font(.poppins(.medium, size: 22))
                 }
 
@@ -62,10 +62,10 @@ struct WelcomeView: View {
                 } label: {
                     Text("Get Started")
                         .font(.poppins(.semibold, size: 20))
-                        .foregroundStyle(Color.textColor)
+                        .foregroundStyle(AppConstants.textColorWhite)
                         .frame(maxWidth: .infinity)
                         .frame(height: 55)
-                        .background(Color.brandAccent)
+                        .background(AppConstants.brandAccent)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
             }
