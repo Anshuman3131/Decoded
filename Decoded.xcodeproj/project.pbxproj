@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E15F4CD92FF273C60094D7AF /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = E15F4CD82FF273C60094D7AF /* Shimmer */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		E1531E362FEA65BC0064811A /* Decoded.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decoded.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E15F4CD92FF273C60094D7AF /* Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = Decoded;
 			packageProductDependencies = (
+				E15F4CD82FF273C60094D7AF /* Shimmer */,
 			);
 			productName = Decoded;
 			productReference = E1531E362FEA65BC0064811A /* Decoded.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = E1531E2D2FEA65BC0064811A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E15F4CD72FF273C60094D7AF /* XCLocalSwiftPackageReference "../../Downloads/SwiftUI-Shimmer-main" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E1531E372FEA65BC0064811A /* Products */;
 			projectDirPath = "";
@@ -347,6 +356,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		E15F4CD72FF273C60094D7AF /* XCLocalSwiftPackageReference "../../Downloads/SwiftUI-Shimmer-main" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../Downloads/SwiftUI-Shimmer-main";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E15F4CD82FF273C60094D7AF /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Shimmer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E1531E2E2FEA65BC0064811A /* Project object */;
 }

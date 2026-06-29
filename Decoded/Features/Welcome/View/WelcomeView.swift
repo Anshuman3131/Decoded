@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WelcomeView: View {
 // MARK: - PROPERTIES
+    @Binding var hasSeenWelcome: Bool
     @State private var currentPage: Int = 0
     
 // MARK: - Body
@@ -16,17 +17,15 @@ struct WelcomeView: View {
         
 // MARK: - Background Image
         ZStack {
-            Image("WelcomeBackgroundImage")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
+            AppConstants.welcomeGradient
+                      .ignoresSafeArea()
             
 // MARK: - Text Content
             VStack(alignment: .leading, spacing: 0){
                 HStack{
                     Image(systemName: "newspaper.fill")
-                        .font(.system(size: 22, weight: .medium))
-                        .foregroundStyle(Color.brandAccent)
+                        .font(.poppins(.medium, size: 22))
+                        .foregroundStyle(AppConstants.accent)
                     Text("Decoded")
                         .font(.poppins(.bold, size: 25))
                         .foregroundStyle(.white)
@@ -34,48 +33,54 @@ struct WelcomeView: View {
                 .padding(.top, 24)
 
                 Spacer()
+                    .frame(height: 75)
 
 // MARK: - Headline
                 VStack(alignment: .leading, spacing: 16){
+                    
                     VStack(alignment: .leading, spacing: -8){
-                        Text("Tech news,")
+                        Text("Tech news &")
+                        Text("Business, Startups")
                         Text("Explained")
+                            .foregroundStyle(AppConstants.welcomeScreenTextPrimary)
                         Text("Simply.")
+                            .foregroundStyle(AppConstants.welcomeScreenTextPrimary)
                     }
-                    .font(.poppins(.bold, size: 44))
-                    .foregroundStyle(Color.textColor)
+                    .font(.poppins(.bold, size: 36))
+                    .foregroundStyle(AppConstants.onColor)
                     
                     (Text("The day's most important tech stories - distilled to the essentials. Ask ")
-                        .foregroundStyle(Color.white) +
+                        .foregroundStyle(AppConstants.onColor) +
                      Text("Decoded")
-                        .foregroundStyle(Color.brandAccent) +
+                        .foregroundStyle(AppConstants.welcomeScreenTextPrimary) +
                      Text(" explains anything you don't get, in plain words..")
-                        .foregroundStyle(Color.textColor))
-                    .font(.poppins(.medium, size: 22))
+                        .foregroundStyle(AppConstants.onColor))
+                    .font(.poppins(.medium, size: 20))
                 }
 
                 Spacer()
 
 // MARK: - Button
                 Button {
-
+                    hasSeenWelcome = true
                 } label: {
                     Text("Get Started")
                         .font(.poppins(.semibold, size: 20))
-                        .foregroundStyle(Color.textColor)
+                        .foregroundStyle(AppConstants.onColor)
                         .frame(maxWidth: .infinity)
                         .frame(height: 55)
-                        .background(Color.brandAccent)
+                        .background(AppConstants.buttonPrimary)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 24)
+            .padding(.horizontal, 20)
             .padding(.vertical)
         }
     }
 }
 
 #Preview {
-    WelcomeView()
+    @Previewable @State var hasSeenWelcome = false
+    return WelcomeView(hasSeenWelcome: $hasSeenWelcome)
 }
