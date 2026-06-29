@@ -12,7 +12,20 @@ struct AppConstants {
     // MARK: - Brand Palette
     /// Warm orange used for accents: the logo mark, the "Decoded" accent word, and primary buttons.
     static let brandAccent = Color(hex: "F4581C")
+    static let buttonOrange = Color(hex: "#ce6e3c")
     static let textColorWhite = Color(hex: "#fbfcfa")
+    static let textColorBrown = Color(hex: "#242823")
+    
+    /// Warm peach for gradients and backgrounds
+    static let laymanPeach = Color(red: 1.0, green: 0.82, blue: 0.64)
+    /// Accent orange used for highlights, "made simple", CTA buttons
+    static let laymanOrange = Color(red: 0.95, green: 0.55, blue: 0.22)
+    /// Deep orange for gradient bottom
+    static let laymanDeepOrange = Color(red: 0.92, green: 0.42, blue: 0.15)
+    /// Welcome screen background gradient (peach → orange, top-to-bottom)
+    static let welcomeGradient = LinearGradient(
+        colors: [AppConstants.laymanPeach, AppConstants.laymanOrange, AppConstants.laymanDeepOrange], startPoint: .top, endPoint: .bottom
+    )
     
     // MARK: - Spacing & Padding
     struct Spacing {
