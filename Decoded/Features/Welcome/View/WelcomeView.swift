@@ -25,7 +25,7 @@ struct WelcomeView: View {
                 HStack{
                     Image(systemName: "newspaper.fill")
                         .font(.poppins(.medium, size: 22))
-                        .foregroundStyle(AppConstants.brandAccent)
+                        .foregroundStyle(AppConstants.accent)
                     Text("Decoded")
                         .font(.poppins(.bold, size: 25))
                         .foregroundStyle(.white)
@@ -42,19 +42,19 @@ struct WelcomeView: View {
                         Text("Tech news &")
                         Text("Business, Startups")
                         Text("Explained")
-                            .foregroundStyle(AppConstants.textColorBrown)
+                            .foregroundStyle(AppConstants.welcomeScreenTextPrimary)
                         Text("Simply.")
-                            .foregroundStyle(AppConstants.textColorBrown)
+                            .foregroundStyle(AppConstants.welcomeScreenTextPrimary)
                     }
                     .font(.poppins(.bold, size: 36))
-                    .foregroundStyle(AppConstants.textColorWhite)
+                    .foregroundStyle(AppConstants.onColor)
                     
                     (Text("The day's most important tech stories - distilled to the essentials. Ask ")
-                        .foregroundStyle(AppConstants.textColorWhite) +
+                        .foregroundStyle(AppConstants.onColor) +
                      Text("Decoded")
-                        .foregroundStyle(AppConstants.textColorBrown) +
+                        .foregroundStyle(AppConstants.welcomeScreenTextPrimary) +
                      Text(" explains anything you don't get, in plain words..")
-                        .foregroundStyle(AppConstants.textColorWhite))
+                        .foregroundStyle(AppConstants.onColor))
                     .font(.poppins(.medium, size: 20))
                 }
 
@@ -66,10 +66,10 @@ struct WelcomeView: View {
                 } label: {
                     Text("Get Started")
                         .font(.poppins(.semibold, size: 20))
-                        .foregroundStyle(AppConstants.textColorWhite)
+                        .foregroundStyle(AppConstants.onColor)
                         .frame(maxWidth: .infinity)
                         .frame(height: 55)
-                        .background(AppConstants.textColorBrown)
+                        .background(AppConstants.buttonPrimary)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
             }

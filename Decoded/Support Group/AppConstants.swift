@@ -9,16 +9,28 @@ import Foundation
 import SwiftUI
 
 struct AppConstants {
-    // MARK: - Brand Palette
-    /// Warm orange used for accents: the logo mark, the "Decoded" accent word, and primary buttons.
-    static let brandAccent = Color(hex: "F4581C")
-    static let buttonOrange = Color(hex: "#ce6e3c")
-    static let textColorWhite = Color(hex: "#fbfcfa")
-    static let textColorBrown = Color(hex: "#242823")
-    
-    /// Warm peach for gradients and backgrounds
+    // MARK: - Semantic Palette (dark-mode adaptive)
+    // Named by ROLE, not appearance — so the names stay true in both light and dark.
+
+    /// Primary text. Dark brown (light) → warm off-white (dark).
+    static let textPrimary = Color(light: "242823", dark: "ECE6DD")
+    static let welcomeScreenTextPrimary = Color(hex: "#26221c")
+    /// Screen background. Cream (light) → warm near-black (dark).
+    static let background = Color(light: "FFFAF2", dark: "141210")
+    /// Elevated surfaces — text fields, cards. Light cream (light) → dark surface (dark).
+    static let surface = Color(light: "FAF5ED", dark: "211D19")
+    /// Brand accent orange — same in both modes (logo mark, accent word).
+    static let accent = Color(hex: "F4581C")
+    /// Text shown on colored surfaces (gradient, primary buttons). Near-white in both modes.
+    static let onColor = Color(hex: "FBFCFA")
+    /// Primary button background. Kept dark in both modes; slightly elevated in dark so it
+    /// stays visible against the near-black background. Pairs with `onColor` text.
+    static let buttonPrimary = Color(light: "242823", dark: "2E2A25")
+
+    // MARK: - Brand Gradient (a fixed brand moment — same in both modes)
+    /// Warm peach for gradient top
     static let laymanPeach = Color(red: 1.0, green: 0.82, blue: 0.64)
-    /// Accent orange used for highlights, "made simple", CTA buttons
+    /// Accent orange for gradient middle
     static let laymanOrange = Color(red: 0.95, green: 0.55, blue: 0.22)
     /// Deep orange for gradient bottom
     static let laymanDeepOrange = Color(red: 0.92, green: 0.42, blue: 0.15)
@@ -26,7 +38,6 @@ struct AppConstants {
     static let welcomeGradient = LinearGradient(
         colors: [AppConstants.laymanPeach, AppConstants.laymanOrange, AppConstants.laymanDeepOrange], startPoint: .top, endPoint: .bottom
     )
-    
     // MARK: - Spacing & Padding
     struct Spacing {
         // MARK: Extra Small
@@ -47,6 +58,8 @@ struct AppConstants {
         static let md28: CGFloat = 28
         static let md30: CGFloat = 30
         static let md32: CGFloat = 32
+        static let md34: CGFloat = 34
+        static let md36: CGFloat = 36
         
         // MARK: Large
         static let lg40: CGFloat = 40
@@ -226,5 +239,14 @@ extension Color {
             blue: Double(b) / 255,
             opacity: 1
         )
+    }
+
+    /// Adaptive color: resolves to `light` hex in light mode, `dark` hex in dark mode.
+    /// Uses a UIColor dynamic provider so the system swaps it automatically when
+    /// the appearance changes — no manual color-scheme checks needed in views.
+    init(light: String, dark: String) {
+        self.init(uiColor: UIColor { traits in
+            UIColor(Color(hex: traits.userInterfaceStyle == .dark ? dark : light))
+        })
     }
 }

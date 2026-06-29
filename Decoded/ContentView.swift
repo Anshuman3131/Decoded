@@ -47,10 +47,10 @@ struct ContentView: View {
             VStack(spacing: 12) {
                 Image(systemName: "newspaper.fill")
                     .font(.poppins(.medium, size: 50))
-                    .foregroundStyle(AppConstants.brandAccent)
+                    .foregroundStyle(AppConstants.accent)
                 Text("Decoded")
                     .font(.poppins(.bold, size: 25))
-                    .foregroundStyle(AppConstants.textColorWhite)
+                    .foregroundStyle(AppConstants.onColor)
             }
         }
     }
